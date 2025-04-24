@@ -1,0 +1,38 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Browser MCP Tools
+
+The MCP server exposes various tools for browser automation. These tools are defined in the [src/tools](mdc:src/tools) directory.
+
+## Tool Types
+
+### Common Tools ([common.ts](mdc:src/tools/common.ts))
+Basic browser navigation and interaction tools:
+- `navigate` - Navigate to a URL
+- `goBack` - Navigate backwards in history
+- `goForward` - Navigate forwards in history
+- `pressKey` - Press a keyboard key
+- `wait` - Wait for a specified duration
+
+### Snapshot Tools ([snapshot.ts](mdc:src/tools/snapshot.ts))
+DOM snapshot and element interaction tools:
+- `snapshot` - Get a snapshot of the current DOM
+- `click` - Click on an element
+- `hover` - Hover over an element
+- `type` - Type text into an input element
+- `selectOption` - Select an option from a dropdown
+
+### Custom Tools ([custom.ts](mdc:src/tools/custom.ts))
+Browser-specific functionality:
+- `getConsoleLogs` - Get console logs from the browser
+
+## Tool Implementation
+
+All tools implement the [Tool interface](mdc:src/tools/tool.ts), which requires:
+- A JSON schema definition
+- A handler function that processes the tool request
+
+Tools interact with the browser through the WebSocket connection established in the [Context](mdc:src/context.ts).

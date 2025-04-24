@@ -1,0 +1,21 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Browser MCP Project Overview
+
+Browser MCP is an MCP (Model Context Protocol) server for browser automation. It allows control of the user's browser rather than creating new browser instances, which helps avoid bot detection mechanisms.
+
+## Key Entry Points
+
+- [src/index.ts](mdc:src/index.ts) - Main entry point for the MCP server
+- [src/server.ts](mdc:src/server.ts) - Server implementation for handling MCP requests
+- [src/context.ts](mdc:src/context.ts) - Context management for browser sessions
+- [src/ws.ts](mdc:src/ws.ts) - WebSocket connection handling
+
+## Project Structure
+
+- `src/tools/` - Contains all tool implementations for browser automation
+- `src/resources/` - Resource handlers for the MCP protocol
+- `src/utils/` - Utility functions used throughout the project

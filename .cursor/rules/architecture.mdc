@@ -1,0 +1,33 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Project Architecture
+
+Browser MCP follows the Model Context Protocol (MCP) architecture to provide browser automation capabilities.
+
+## Core Components
+
+### Server
+The [server.ts](mdc:src/server.ts) file implements the MCP server using the `@modelcontextprotocol/sdk` package. It handles:
+- Tool listing and execution
+- Resource listing and reading
+- WebSocket connections for browser control
+
+### Context
+The [context.ts](mdc:src/context.ts) file manages the browser session state and provides an interface for tools to interact with the browser.
+
+### Tools
+Tools are defined in the [tools directory](mdc:src/tools) and are categorized as:
+- [Common Tools](mdc:src/tools/common.ts) - Basic navigation and interaction
+- [Snapshot Tools](mdc:src/tools/snapshot.ts) - DOM snapshot and element interaction
+- [Custom Tools](mdc:src/tools/custom.ts) - Browser-specific functionality
+
+## Data Flow
+1. Client connects to the MCP server
+2. Server establishes WebSocket connection with the browser
+3. Client requests tool execution
+4. Server routes the request to the appropriate tool implementation
+5. Tool interacts with the browser via WebSocket
+6. Results are returned to the client
